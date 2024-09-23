@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+html {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(174, 214, 181);
+}
+
+p {
+    font-family: "Nunito", sans-serif;
+}
+
+div {
+    font-family: "Nunito", sans-serif;
+}
+
+#currentscoreblock {
+    background-color: rgb(37, 84, 50);
+    color: rgb(255, 255, 255);
+    width: 6rem;
+    height: 4.6rem;
+    text-align: center;
+    margin-inline: auto;
+    border-radius: 0.8rem;
+    padding: 0.01rem 0.7rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#currentscore {
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+#score {
+    margin-top: -0.8rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+#table {
+    margin-inline: auto;
+    background-color: rgb(71, 141, 83);
+    padding: 0.4rem;
+    border-radius: 1rem;
+}
+
+#table div {
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    background-color: rgb(123, 200, 136);
+    margin: 0.4rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    line-height: 8rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    word-wrap: normal;
+}
+
+#gameover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    height: 20rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+}
+
+#gameover * {
+    position: absolute;
+    left: 50%;
+}
+
+#gameovertxt {
+    top: 25%;
+    translate: -50% -50%;
+    font-size: 3em;
+    font-weight: 800;
+    text-align: center;
+}
+
+#retry {
+    top: 65%;
+    translate: -50% -50%;
+    font-size: 1em;
+    background-color: rgb(37, 84, 50);
+    border-width: 0;
+    border-radius: 0.9rem;
+    width: 15rem;
+    height: 3rem;
+    color: rgb(255, 255, 255);
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
