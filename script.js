@@ -5,7 +5,6 @@ let PlayArea = document.getElementById("playarea");
 let CurrentScore = document.getElementById("score");
 
 let GameStatus = [];
-let Filled = 0;
 let Score = 0;
 let Lose = false;
 
@@ -51,6 +50,16 @@ function DrawGame() {
     }
 }
 
+function CountBox() {
+    let Count = 0
+    for (let y = 0; y < ySize; y++) {
+        for (let x = 0; x < xSize; x++) {
+            if (GameStatus[y][x] != 0) {Count++;}
+        }
+    }
+    return Count;
+}
+
 function CheckIfLose() {
     for (let y = 0; y < ySize; y++) {
         for (let x = 0; x < xSize; x++) {
@@ -78,7 +87,7 @@ function NewTile() {
         xNewPos = Math.floor(Math.random() * xSize);
         yNewPos = Math.floor(Math.random() * ySize);
 
-        if (Filled >= xSize * ySize) {
+        if (CountBox() >= xSize * ySize) {
             DrawGame();
             return;
         }
@@ -91,9 +100,8 @@ function NewTile() {
     else {chosennum = 2;}
 
     GameStatus[yNewPos][xNewPos] = chosennum;
-    Filled++;
 
-    if (Filled >= xSize * ySize && CheckIfLose() == true) {
+    if (CountBox() >= xSize * ySize && CheckIfLose() == true) {
         GameOver();
         Lose = true;
     }
@@ -112,7 +120,6 @@ function Slide(direction) {
                     if (GameStatus[yPos-1][x] == GameStatus[yPos][x]) {
                         GameStatus[yPos-1][x] *= 2;
                         Score += GameStatus[yPos-1][x];
-                        Filled--;
                     }
                     else {
                         GameStatus[yPos-1][x] = GameStatus[yPos][x];
@@ -134,7 +141,6 @@ function Slide(direction) {
                     if (GameStatus[yPos+1][x] == GameStatus[yPos][x]) {
                         GameStatus[yPos+1][x] *= 2;
                         Score += GameStatus[yPos+1][x];
-                        Filled--;
                     }
                     else {
                         GameStatus[yPos+1][x] = GameStatus[yPos][x];
@@ -156,7 +162,6 @@ function Slide(direction) {
                     if (GameStatus[y][xPos-1] == GameStatus[y][xPos]) {
                         GameStatus[y][xPos-1] *= 2;
                         Score += GameStatus[y][xPos-1];
-                        Filled--;
                     }
                     else {
                         GameStatus[y][xPos-1] = GameStatus[y][xPos];
@@ -178,7 +183,6 @@ function Slide(direction) {
                     if (GameStatus[y][xPos+1] == GameStatus[y][xPos]) {
                         GameStatus[y][xPos+1] *= 2;
                         Score += GameStatus[y][xPos+1];
-                        Filled--;
                     }
                     else {
                         GameStatus[y][xPos+1] = GameStatus[y][xPos];
@@ -216,5 +220,5 @@ document.body.onkeyup = function(press) {
     else if (press.code == "ArrowDown") {Slide("D");}
     else if (press.code == "ArrowLeft") {Slide("L");}
     else if (press.code == "ArrowRight") {Slide("R");}
-    console.log(Filled)
+    console.log(CountBox())
 }
