@@ -67,6 +67,7 @@ function CheckIfLose() {
 
 function GameOver() {
     document.getElementById("gameover").style.display = "block";
+    DrawGame();
 }
 
 function NewTile() {
